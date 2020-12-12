@@ -1,0 +1,14 @@
+version: '3'
+
+
+services:
+  db:
+    image: nouchka/sqlite3
+  web:
+    build: .
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    container_name: universities_query
+    volumes:
+      - .:/universities_query
+    ports:
+      - "8000:8000"

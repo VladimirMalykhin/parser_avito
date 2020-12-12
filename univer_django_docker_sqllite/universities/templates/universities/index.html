@@ -1,0 +1,10 @@
+{% if latest_question_list %}
+    <ul id="universities">
+    {% for question in latest_question_list %}
+        <li><a href="/universities/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <li><a href="/universities/{{ 1 }}/">{{ "KNEU" }}</a></li>
+    <li><a href="/universities/{{ 2 }}/">{{ "KPI" }}</a></li>
+{% endif %}
